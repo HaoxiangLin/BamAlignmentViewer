@@ -21,10 +21,17 @@ optional arguments:
 	--rg        [STR]   The read group you want to draw
 	-f          [NUM]   only show reads which mapping quality > NUM
 	-d                  remove duplication reads, cigar level dups
-	--ref       [FILE]  hg19 reference fasta file path
 	-R                  show with reference, depend on -ref option specified
 
 ###############################################################################
 ```
 
+2.0 Change:
+
+1. No ref input allowed, as I only want to align all reads in order with gaps 
+2. No images output allowed, just print it into txt like samtools tview does.
+3. BUG fix, when meet serverl insertion nearby, the reads may out of order. The original version dont consider on this. 
+4. Use table to concate string, more fast
+5. Bug fix, in the situation,  start of bed in front of reads start postion, out of order
+6. Mask clip sequence. 
 
